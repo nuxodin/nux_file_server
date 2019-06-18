@@ -7,9 +7,8 @@ export class server {
     }
     async listen(req){
         const fileName = req.url.replace(/\/$/, '').replace(/\?.*/, '');
-        var found = await this.fileToResponse(this.options.base + fileName);
-        if (!found) return false;
-        response = await serveFile(req, filePath);
+        var resp = await this.fileToResponse(this.options.base + fileName);
+        if (!resp) return false;
         req.respond(response);
         return true;
     }
