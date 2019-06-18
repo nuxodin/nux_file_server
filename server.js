@@ -1,3 +1,6 @@
+import { extname } from "https://deno.land/x/fs/path.ts";
+import { contentType } from "https://deno.land/x/media_types/mod.ts";
+
 class server {
     constructor(options={}){
         this.options = options;
@@ -24,3 +27,4 @@ class server {
         return res;        
     }
 }
+export server;
