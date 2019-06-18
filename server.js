@@ -14,8 +14,8 @@ export class server {
         return true;
     }
     async fileToResponse(path){
-        const file = await open(path);
-        const fileInfo = await stat(path);
+        const file = await Deno.open(path);
+        const fileInfo = await Deno.stat(path);
         const headers = new Headers();
         headers.set("content-length", fileInfo.len.toString());
         headers.set("content-type", contentType(extname(path)) || 'text/plain');
