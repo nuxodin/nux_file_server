@@ -18,9 +18,11 @@ console.log(path);
         const fileInfo = null;
         try {
             fileInfo = await Deno.stat(path);
-        } catch { // not found
+        } catch (e) { // not found
+            console.log(e)
             return false;
         }
+console.log(fileInfo.isFile());
         if (!fileInfo.isFile()) return false;
         const file = await Deno.open(path);
         const headers = new Headers();
