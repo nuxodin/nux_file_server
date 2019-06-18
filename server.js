@@ -13,6 +13,7 @@ export class server {
         return true;
     }
     async fileToResponse(path){
+        return false;
         const fileInfo = await Deno.stat(path);
         console.log(fileInfo)
         if (!fileInfo) return false;
