@@ -9,7 +9,7 @@ export class server {
         const fileName = req.url.replace(/\/$/, '').replace(/\?.*/, '');
         var resp = await this.fileToResponse(this.options.base + fileName);
         if (!resp) return false;
-        req.respond(response);
+        req.respond(resp);
         return true;
     }
     async fileToResponse(path){
