@@ -14,6 +14,8 @@ export class server {
     }
     async fileToResponse(path){
         const fileInfo = await Deno.stat(path);
+        console.log(fileInfo)
+        if (!fileInfo) return false;
         if (!fileInfo.isFile()) return false;
         const file = await Deno.open(path);
         const headers = new Headers();
