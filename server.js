@@ -6,7 +6,7 @@ export class server {
         this.options = options;
     }
     async listen(req){
-        const fileName = req.url.replace(/\/$/, '');
+        const fileName = req.url.replace(/\/$/, '').replace(/\?.*/, '');
         var found = await this.fileToResponse(this.options.base + fileName);
         if (!found) return false;
         response = await serveFile(req, filePath);
