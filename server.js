@@ -6,13 +6,14 @@ export class server {
         this.options = options;
     }
     async listen(req){
-        const fileName = req.url.replace(/^file:\/\//,'').replace(/\/$/, '').replace(/\?.*/, '');
+        const fileName = req.url.replace(/\/$/, '').replace(/\?.*/, '');
         var resp = await this.fileToResponse(this.options.base + fileName);
         if (!resp) return false;
         req.respond(resp);
         return true;
     }
     async fileToResponse(path){
+        path = path.replace(/^file:\/\//,'');
 console.log(path);
         const fileInfo = null;
         try {
