@@ -13,6 +13,7 @@ export class server {
         return true;
     }
     async fileToResponse(path){
+console.log(path);
         const fileInfo = null;
         try {
             fileInfo = await Deno.stat(path);
