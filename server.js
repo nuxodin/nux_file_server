@@ -13,12 +13,12 @@ class server {
         req.respond(response);
         return true;
     }
-    serve(request, file){
-        const file = await open(filename);
-        const fileInfo = await stat(filename);
+    async serve(request, path){
+        const file = await open(path);
+        const fileInfo = await stat(path);
         const headers = new Headers();
         headers.set("content-length", fileInfo.len.toString());
-        headers.set("content-type", contentType(extname(filename)) || 'text/plain');
+        headers.set("content-type", contentType(extname(path)) || 'text/plain');
         const res = {
             status: 200,
             body: file,
