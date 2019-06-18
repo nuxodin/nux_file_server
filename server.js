@@ -7,13 +7,13 @@ export class server {
     }
     async listen(req){
         const fileName = req.url.replace(/\/$/, '');
-        var found = await this.serve(request, this.options.base + fileName);
+        var found = await this.fileToResponse(this.options.base + fileName);
         if (!found) return false;
         response = await serveFile(req, filePath);
         req.respond(response);
         return true;
     }
-    async serve(request, path){
+    async fileToResponse(path){
         const file = await open(path);
         const fileInfo = await stat(path);
         const headers = new Headers();
@@ -24,6 +24,6 @@ export class server {
             body: file,
             headers
         };
-        return res;        
+        return res;
     }
 }
