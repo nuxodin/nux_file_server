@@ -15,7 +15,7 @@ export class server {
     async fileToResponse(path){
         path = path.replace(/^file:\/\//,'');
 console.log(path);
-        const fileInfo = null;
+        let fileInfo = null;
         try {
             fileInfo = await Deno.stat(path);
         } catch (e) { // not found
