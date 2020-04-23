@@ -47,7 +47,6 @@ const MEDIA_TYPES = {
     ".jsx": "text/jsx",
     ".gz": "application/gzip",
 };
-
 function contentType(path) {
     return MEDIA_TYPES[extname(path)];
 }
