@@ -1,5 +1,4 @@
-import { extname } from "https://deno.land/x/fs/path.ts";
-import { contentType } from "https://deno.land/x/media_types/mod.ts";
+import { extname } from "https://deno.land/std/path/mod.ts";
 
 export class server {
     constructor(options={}){
@@ -32,4 +31,23 @@ export class server {
         };
         return res;
     }
+}
+
+
+const MEDIA_TYPES = {
+    ".md": "text/markdown",
+    ".html": "text/html",
+    ".htm": "text/html",
+    ".json": "application/json",
+    ".map": "application/json",
+    ".txt": "text/plain",
+    ".ts": "text/typescript",
+    ".tsx": "text/tsx",
+    ".js": "application/javascript",
+    ".jsx": "text/jsx",
+    ".gz": "application/gzip",
+};
+
+function contentType(path) {
+    return MEDIA_TYPES[extname(path)];
 }
