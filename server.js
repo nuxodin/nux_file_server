@@ -1,4 +1,4 @@
-import { extname } from "https://deno.land/std/path/mod.ts";
+import { extname } from "https://deno.land/std@v0.41.0/path/mod.ts";
 
 export class server {
     constructor(options={}){
