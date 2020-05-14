@@ -1,4 +1,4 @@
-import { extname } from "https://deno.land/std@v0.42.0/path/mod.ts";
+import { extname } from "https://deno.land/std@0.50.0/path/mod.ts";
 
 
 export function pathToContentType(path) {
