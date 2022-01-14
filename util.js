@@ -2,7 +2,7 @@ import { extname } from "https://deno.land/std@0.93.0/path/mod.ts";
 
 
 export function pathToContentType(path) {
-    const ext = extname(path).substr(1)
+    const ext = extname(path).substr(1);
     return MEDIA_TYPES[ext];
 }
 
